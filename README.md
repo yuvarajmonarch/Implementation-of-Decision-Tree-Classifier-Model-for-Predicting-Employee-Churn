@@ -62,18 +62,41 @@ dt.predict([[0.5,0.8,9,260,6,0,1,2]])
 ```
 
 ## Output:
+```
+data.head()
+data.info()
+```
 <img width="456" alt="Screenshot 2024-04-01 at 9 06 30 AM" src="https://github.com/Richard01072002/Implementation-of-Decision-Tree-Classifier-Model-for-Predicting-Employee-Churn/assets/141472248/4bd7172f-f938-4251-a26d-b1a40c6f81f1">
 
+```
+data.isnull().sum()
+data["left"].value_counts()
+```
 <img width="219" alt="Screenshot 2024-04-01 at 9 06 38 AM" src="https://github.com/Richard01072002/Implementation-of-Decision-Tree-Classifier-Model-for-Predicting-Employee-Churn/assets/141472248/66e82564-2d50-4bc7-bf40-217f98a844e1">
 
+```
+data["salary"] = le.fit_transform(data["salary"])
+data.head()
+```
 <img width="1216" alt="Screenshot 2024-04-01 at 9 07 04 AM" src="https://github.com/Richard01072002/Implementation-of-Decision-Tree-Classifier-Model-for-Predicting-Employee-Churn/assets/141472248/35f7d11d-796c-4291-b6f0-b68347d36075">
 
-
+```
+x = data[["satisfaction_level","last_evaluation","number_project","average_montly_hours","time_spend_company","Work_accident","promotion_last_5years","salary"]]
+x.head()
+```
 <img width="1200" alt="Screenshot 2024-04-01 at 9 07 16 AM" src="https://github.com/Richard01072002/Implementation-of-Decision-Tree-Classifier-Model-for-Predicting-Employee-Churn/assets/141472248/b4881738-03aa-4cf3-b7f6-73511c509a57">
 
-
+```
+from sklearn import metrics
+accuracy = metrics.accuracy_score(y_test,y_pred)
+accuracy
+```
 <img width="232" alt="Screenshot 2024-04-01 at 9 07 34 AM" src="https://github.com/Richard01072002/Implementation-of-Decision-Tree-Classifier-Model-for-Predicting-Employee-Churn/assets/141472248/6c4c61d6-03f3-43f3-b3fe-0f205bd570a2">
 
+
+```
+dt.predict([[0.5,0.8,9,260,6,0,1,2]])
+```
 <img width="1205" alt="Screenshot 2024-04-01 at 9 07 54 AM" src="https://github.com/Richard01072002/Implementation-of-Decision-Tree-Classifier-Model-for-Predicting-Employee-Churn/assets/141472248/7735c8c0-b001-4104-a338-2d351e575298">
 
 
