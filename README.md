@@ -20,7 +20,6 @@ Program to implement the Decision Tree Classifier Model for Predicting Employee 
 
 Developed by: YUVARAJ B
 RegisterNumber:  212222040186
-
 */
 ```
 ```python
