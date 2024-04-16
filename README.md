@@ -8,96 +8,68 @@ To write a program to implement the Decision Tree Classifier Model for Predictin
 2. Anaconda – Python 3.7 Installation / Jupyter notebook
 
 ## Algorithm
-1.import pandas module and import the required data set.
+1. Import pandas
+2. Import Decision tree classifier
+3. Fit the data in the model
+4. Find the accuracy score
 
-2.Find the null values and count them.
-
-3.Count number of left values.
-
-4.From sklearn import LabelEncoder to convert string values to numerical values.
-
-5.From sklearn.model_selection import train_test_split.
-
-6.Assign the train dataset and test dataset.
-
-7.From sklearn.tree import DecisionTreeClassifier.
-
-8.Use criteria as entropy.
-
-9.From sklearn import metrics.
-
-10.Find the accuracy of our model and predict the require values.
 ## Program:
 ```
 /*
 Program to implement the Decision Tree Classifier Model for Predicting Employee Churn.
-Developed by: RICGARDSON A
-RegisterNumber:  212222233005
-*/
+Developed by: YUVARAJ B
+RegisterNumber:  212222040186
 
 import pandas as pd
-data = pd.read_csv("/content/Employee.csv")
+data=pd.read_csv("/content/Employee.csv")
 data.head()
 data.info()
 data.isnull().sum()
 data["left"].value_counts()
 from sklearn.preprocessing import LabelEncoder
-le = LabelEncoder()
-data["salary"] = le.fit_transform(data["salary"])
+le=LabelEncoder()
+data["salary"]=le.fit_transform(data["salary"])
 data.head()
-x = data[["satisfaction_level","last_evaluation","number_project","average_montly_hours","time_spend_company","Work_accident","promotion_last_5years","salary"]]
-x.head()
-y = data["left"]
+x=data[["satisfaction_level","last_evaluation","number_project","average_montly_hours","time_spend_company","Work_accident","promotion_last_5years","salary"]]
+x.head()    #no departments and no left
+y=data["left"]
 from sklearn.model_selection import train_test_split
-x_train,x_test,y_train,y_test = train_test_split(x,y,test_size=0.2,random_state=100)
+x_train,x_test,y_train,y_test=train_test_split(x,y,test_size=0.2,random_state=100)
 from sklearn.tree import DecisionTreeClassifier
-dt = DecisionTreeClassifier(criterion = "entropy")
+dt=DecisionTreeClassifier(criterion="entropy")
 dt.fit(x_train,y_train)
-y_pred = dt.predict(x_test)
+y_pred=dt.predict(x_test)
 from sklearn import metrics
-accuracy = metrics.accuracy_score(y_test,y_pred)
+accuracy=metrics.accuracy_score(y_test,y_pred)
 accuracy
 dt.predict([[0.5,0.8,9,260,6,0,1,2]])
-
+*/
 ```
 
 ## Output:
-```
-data.head()
-data.info()
-```
-<img width="456" alt="Screenshot 2024-04-01 at 9 06 30 AM" src="https://github.com/Richard01072002/Implementation-of-Decision-Tree-Classifier-Model-for-Predicting-Employee-Churn/assets/141472248/4bd7172f-f938-4251-a26d-b1a40c6f81f1">
+#### data.head()
+![Screenshot 2024-04-06 202922](https://github.com/rohithprem18/Implementation-of-Decision-Tree-Classifier-Model-for-Predicting-Employee-Churn/assets/146315115/3b6d1584-564f-4ff4-92e1-9e72a4bfd271)
 
-```
-data.isnull().sum()
-data["left"].value_counts()
-```
-<img width="219" alt="Screenshot 2024-04-01 at 9 06 38 AM" src="https://github.com/Richard01072002/Implementation-of-Decision-Tree-Classifier-Model-for-Predicting-Employee-Churn/assets/141472248/66e82564-2d50-4bc7-bf40-217f98a844e1">
+#### data.info()
+![Screenshot 2024-04-06 202927](https://github.com/rohithprem18/Implementation-of-Decision-Tree-Classifier-Model-for-Predicting-Employee-Churn/assets/146315115/6fd24494-3daa-4454-b74d-4705f541bc06)
 
-```
-data["salary"] = le.fit_transform(data["salary"])
-data.head()
-```
-<img width="1216" alt="Screenshot 2024-04-01 at 9 07 04 AM" src="https://github.com/Richard01072002/Implementation-of-Decision-Tree-Classifier-Model-for-Predicting-Employee-Churn/assets/141472248/35f7d11d-796c-4291-b6f0-b68347d36075">
+#### isnull() and sum()
+![Screenshot 2024-04-06 202931](https://github.com/rohithprem18/Implementation-of-Decision-Tree-Classifier-Model-for-Predicting-Employee-Churn/assets/146315115/0bbc04b9-2b96-477b-bad1-d910d204480e)
 
-```
-x = data[["satisfaction_level","last_evaluation","number_project","average_montly_hours","time_spend_company","Work_accident","promotion_last_5years","salary"]]
-x.head()
-```
-<img width="1200" alt="Screenshot 2024-04-01 at 9 07 16 AM" src="https://github.com/Richard01072002/Implementation-of-Decision-Tree-Classifier-Model-for-Predicting-Employee-Churn/assets/141472248/b4881738-03aa-4cf3-b7f6-73511c509a57">
+#### data value counts()
+![Screenshot 2024-04-06 202936](https://github.com/rohithprem18/Implementation-of-Decision-Tree-Classifier-Model-for-Predicting-Employee-Churn/assets/146315115/07ba789e-e175-4018-bfd2-548037bbb6ba)
 
-```
-from sklearn import metrics
-accuracy = metrics.accuracy_score(y_test,y_pred)
-accuracy
-```
-<img width="232" alt="Screenshot 2024-04-01 at 9 07 34 AM" src="https://github.com/Richard01072002/Implementation-of-Decision-Tree-Classifier-Model-for-Predicting-Employee-Churn/assets/141472248/6c4c61d6-03f3-43f3-b3fe-0f205bd570a2">
+#### data.head() for salary
+![Screenshot 2024-04-06 202941](https://github.com/rohithprem18/Implementation-of-Decision-Tree-Classifier-Model-for-Predicting-Employee-Churn/assets/146315115/fbd2b025-c2e6-42fa-9cfa-a62d95e04829)
 
+#### x.head()
+![Screenshot 2024-04-06 202946](https://github.com/rohithprem18/Implementation-of-Decision-Tree-Classifier-Model-for-Predicting-Employee-Churn/assets/146315115/e6eebae1-b13f-4a4d-8552-2af070534275)
 
-```
-dt.predict([[0.5,0.8,9,260,6,0,1,2]])
-```
-<img width="1205" alt="Screenshot 2024-04-01 at 9 07 54 AM" src="https://github.com/Richard01072002/Implementation-of-Decision-Tree-Classifier-Model-for-Predicting-Employee-Churn/assets/141472248/7735c8c0-b001-4104-a338-2d351e575298">
+#### accuracy value
+![Screenshot 2024-04-06 202950](https://github.com/rohithprem18/Implementation-of-Decision-Tree-Classifier-Model-for-Predicting-Employee-Churn/assets/146315115/36a73dd2-3b0e-4111-9cca-a92defe90f1d)
+
+#### data prediction
+![Screenshot 2024-04-06 202956](https://github.com/rohithprem18/Implementation-of-Decision-Tree-Classifier-Model-for-Predicting-Employee-Churn/assets/146315115/5226bebe-5fc8-462c-b235-aafed67fc98f)
 
 
 ## Result:
